@@ -1,6 +1,9 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    node: {
+        fs: "empty"
+    },
     mode: 'development',
     resolve: {
         extensions: ['.js', '.vue']
@@ -29,6 +32,7 @@ module.exports = {
         // global app config object
         config: JSON.stringify({
             apiUrl: 'http://localhost:4000'
-        })
+        }),
+        knex: 'commonjs knex'
     }
 }
