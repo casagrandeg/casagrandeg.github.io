@@ -1,27 +1,12 @@
-import Knex from "knex";
+//import Knex from "knex";
 
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
-
-//db connection
-var knex = require('knex')({
-    client: 'pg',
-    connection: {
-      host : 'hattie.db.elephantsql.com',
-      user : 'hcvgnunk',
-      password : '9AEFWsXwIqrhejTMoKW6qts2eBvnPVdm',
-      database : 'hcvgnunk'
-    }
-});
     
 export function configureFakeBackend() {
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
-            //const accounts = await knex.select().table("account");
-            //for (const a of accounts) {
-            //    console.log(JSON.stringify(a));
-            //}
             // wrap in timeout to simulate server api call
             setTimeout(() => {
 

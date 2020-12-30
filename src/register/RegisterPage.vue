@@ -3,24 +3,34 @@
         <h2>Register</h2>
         <form @submit.prevent="handleSubmit">
             <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" v-model="user.firstName" v-validate="'required'" name="firstName" class="form-control" :class="{ 'is-invalid': submitted && errors.has('firstName') }" />
-                <div v-if="submitted && errors.has('firstName')" class="invalid-feedback">{{ errors.first('firstName') }}</div>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" v-model="user.lastName" v-validate="'required'" name="lastName" class="form-control" :class="{ 'is-invalid': submitted && errors.has('lastName') }" />
-                <div v-if="submitted && errors.has('lastName')" class="invalid-feedback">{{ errors.first('lastName') }}</div>
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" v-model="user.username" v-validate="'required'" name="username" class="form-control" :class="{ 'is-invalid': submitted && errors.has('username') }" />
-                <div v-if="submitted && errors.has('username')" class="invalid-feedback">{{ errors.first('username') }}</div>
+                <label for="email">Email</label>
+                <input type="text" v-model="user.email" v-validate="'required'" name="email" class="form-control" :class="{ 'is-invalid': submitted && errors.has('email') }" />
+                <div v-if="submitted && errors.has('email')" class="invalid-feedback">{{ errors.first('email') }}</div>
             </div>
             <div class="form-group">
                 <label htmlFor="password">Password</label>
                 <input type="password" v-model="user.password" v-validate="{ required: true, min: 6 }" name="password" class="form-control" :class="{ 'is-invalid': submitted && errors.has('password') }" />
                 <div v-if="submitted && errors.has('password')" class="invalid-feedback">{{ errors.first('password') }}</div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" v-model="user.name" v-validate="'required'" name="name" class="form-control" :class="{ 'is-invalid': submitted && errors.has('name') }" />
+                <div v-if="submitted && errors.has('name')" class="invalid-feedback">{{ errors.first('name') }}</div>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" v-model="user.surname" v-validate="'required'" name="surname" class="form-control" :class="{ 'is-invalid': submitted && errors.has('surname') }" />
+                <div v-if="submitted && errors.has('surname')" class="invalid-feedback">{{ errors.first('surname') }}</div>
+            </div>
+            <div class="form-group">
+                <label for="itemCode">Product Code</label>
+                <input type="text" v-model="user.itemCode" v-validate="'required'" name="itemCode" class="form-control" :class="{ 'is-invalid': submitted && errors.has('itemCode') }" />
+                <div v-if="submitted && errors.has('itemCode')" class="invalid-feedback">{{ errors.first('itemCode') }}</div>
+            </div>
+           <div class="form-group">
+                <label for="itemLocation">Product Location (city name)</label>
+                <input type="text" v-model="user.itemLocation" v-validate="'required'" name="itemLocation" class="form-control" :class="{ 'is-invalid': submitted && errors.has('itemLocation') }" />
+                <div v-if="submitted && errors.has('itemLocation')" class="invalid-feedback">{{ errors.first('itemLocation') }}</div>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" :disabled="status.registering">Register</button>
@@ -38,10 +48,13 @@ export default {
     data () {
         return {
             user: {
-                firstName: '',
-                lastName: '',
-                username: '',
-                password: ''
+                name: '',
+                surname: '',
+                email: '',
+                password: '',
+                itemCode: '',
+                itemLocation: ''
+
             },
             submitted: false
         }
