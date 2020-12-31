@@ -4,7 +4,7 @@ module.exports = {
     node: {
         fs: "empty"
     },
-    mode: 'production',
+    mode: 'development',
     resolve: {
         extensions: ['.js', '.vue']
     },
@@ -31,7 +31,7 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
-            apiUrl: 'http://localhost:4000'
+            apiUrl: 'https://demo-stiga-backend.herokuapp.com'
         }),
         knex: 'commonjs knex'
     }
