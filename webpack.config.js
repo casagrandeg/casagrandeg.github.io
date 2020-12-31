@@ -4,7 +4,7 @@ module.exports = {
     node: {
         fs: "empty"
     },
-    mode: 'development',
+    mode: 'production',
     resolve: {
         extensions: ['.js', '.vue']
     },
